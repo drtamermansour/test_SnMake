@@ -1,0 +1,14 @@
+
+rule sample_rule:
+    input:
+        fwd='data/R1.fastq',
+        rev='data/R2.fastq'
+    output:
+        'interleaved.fastq'
+    message:
+        '''--- Interleave input fastq files.'''
+    run:
+        shell('''
+            paste <(cat {input.fwd} | paste - - - -) <(cat {input.rev} | paste - - - -) | tr '\t' '\n' > {output}
+        ''')
+

@@ -1,0 +1,13 @@
+
+rule another_rule:
+    input:
+        'interleaved.fastq'
+    output:
+        'header.txt'
+    message:
+        '''--- head the interleaved file'''
+    run:
+        shell('''
+            head -n4 {input} > {output}
+        ''')
+

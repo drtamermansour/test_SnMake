@@ -1,0 +1,8 @@
+
+__default__:
+mem: 1G
+time: '01:00:00' 
+
+sample_rule:
+time: '2:00:00'
+mem: 10G
